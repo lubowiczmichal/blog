@@ -1,0 +1,36 @@
+.Post {
+  margin: 0.5em;
+  border-style: dotted;
+}
+
+.Header {
+  height: auto;
+  display: flex;
+}
+
+.Post #title {
+  background-color: orange;
+  text-align: left;
+  width: fit-content;
+  padding: 0.2em 1em 0.2em 1em;
+}
+
+.Post #date {
+  background-color: red;
+  height: fit-content;
+  margin: auto 5% auto auto;
+}
+
+.Post #content {
+  background-color: green;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+.Post #author {
+  background-color: gray;
+  margin-left: auto;
+  margin-right: 5%;
+  text-align: right;
+  width: fit-content;
+}
