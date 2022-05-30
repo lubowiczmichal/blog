@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "homepage": "https://lubowiczmichal.github.io/blog/",
+  "homepage": "https://lubowiczmichal.github.io/blog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
