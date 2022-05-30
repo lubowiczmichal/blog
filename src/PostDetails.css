@@ -1,0 +1,16 @@
+:root {
+  --contentWidth: 800px;
+}
+@media (max-width: 1600px) {
+  :root {
+    --contentWidth: 50vw;
+  }
+}
+
+.PostDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: var(--contentWidth);
+}

@@ -1,9 +1,9 @@
 .Post {
-  margin: 0.5em;
-  border-style: dotted;
+  width: 100%-2px;
+  background-color: gainsboro;
 }
 
-.Header {
+.Post-Header {
   height: auto;
   display: flex;
 }
@@ -24,8 +24,8 @@
 .Post #content {
   background-color: green;
   text-align: center;
-  width: 90%;
-  margin: auto;
+  width: 95%;
+  margin: auto 5% auto 0;
 }
 .Post #author {
   background-color: gray;
