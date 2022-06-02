@@ -57,6 +57,9 @@ function NewPost() {
           className="ButtonSubmit"
           onClick={() => submit()}
           margin="normal"
+          style={{
+            color: "#2F5061",
+          }}
         >
           Submit
         </Button>
@@ -70,6 +73,7 @@ function NewPost() {
       content: content.length == 0,
       author: author.length == 0,
     });
+    console.log(error.title, error.content, error.author);
     if (!error.title && !error.content && !error.author) {
       const access = new Access();
       const post = {

@@ -2,10 +2,11 @@
   "name": "blog",
   "homepage": "https://lubowiczmichal.github.io/blog",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.2",
     "@mui/material": "^5.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",

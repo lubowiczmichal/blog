@@ -1,36 +1,81 @@
 .Post {
-  width: 100%-2px;
-  background-color: gainsboro;
+  width: 100%;
+  background-color: #868b8e;
+  border-radius: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 0.1em;
 }
 
 .Post-Header {
   height: auto;
   display: flex;
+  width: 100%;
+  height: fit-content;
+  background-color: #999999;
+  border-radius: 1em 1em 0 0;
 }
 
+.Post-Header .Header-Left {
+  width: 70%;
+}
 .Post #title {
-  background-color: orange;
+  background-color: #e7d2cc;
   text-align: left;
-  width: fit-content;
-  padding: 0.2em 1em 0.2em 1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.5em;
+  border-radius: 1em;
+  margin: 1em 0.25em 1em 0.25em;
+  font-family: Helvetica;
+  font-size: 1.5em;
+}
+
+.Post-Header .Header-Right {
+  width: 30%;
+  text-align: right;
 }
 
 .Post #date {
-  background-color: red;
-  height: fit-content;
-  margin: auto 5% auto auto;
+  background-color: #eeede7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 1em;
+  margin-right: 5%;
+  margin-top: 3em;
+  margin-left: auto;
+  width: fit-content;
+  padding: 0 1em 0 1em;
 }
 
 .Post #content {
-  background-color: green;
+  background-color: #eeede7;
   text-align: center;
-  width: 95%;
-  margin: auto 5% auto 0;
+  width: 95%-0.25em;
+  margin: 1em 5% auto 0.25em;
+  border-radius: 1em;
 }
 .Post #author {
-  background-color: gray;
+  background-color: #e2ded0;
   margin-left: auto;
   margin-right: 5%;
   text-align: right;
   width: fit-content;
+  padding: 0.4em;
+  border-radius: 1em;
+}
+
+.Post .Edit {
+  margin-top: 0.25em;
+  margin-left: -10em;
+  position: absolute;
+}
+
+.Post .Remove {
+  margin-top: 0.25em;
+  margin-left: -5em;
+  position: absolute;
 }

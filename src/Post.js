@@ -2,23 +2,45 @@ import "./Post.css";
 import { Link } from "react-router-dom";
 import Access from "./AccessScript";
 import { Button } from "@mui/material";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import EditIcon from "@mui/icons-material/Edit";
 
 function Post(props) {
   const access = new Access();
-  const comments = []; //access.getCommentsByPostId(props.post.id);
   return (
     <div className="Post">
       <div className="Post-Header">
-        <h1 id="title">{props.post.title}</h1>
-        <p id="date">{props.post.dateTime.toLocaleString()}</p>
+        <div className="Header-Left">
+          <p id="title">{props.post.title}</p>
+        </div>
+        <div className="Header-Right">
+          <Button
+            className="Edit"
+            onClick={() => access.removePost(props.post.id)}
+          >
+            <EditIcon />
+          </Button>
+          <Button
+            color="error"
+            className="Remove"
+            onClick={() => access.removePost(props.post.id)}
+          >
+            <DeleteForeverIcon />
+          </Button>
+          <p id="date">{props.post.dateTime.toLocaleString()}</p>
+        </div>
       </div>
-      <p id="content">{props.post.content}</p>
+      <div id="content">
+        {props.post.content.length > 303 ? (
+          <p>
+            {props.post.content.slice(0, 300) + "... "}
+            <Link to={`post/${props.post.id}`}>see whole</Link>
+          </p>
+        ) : (
+          props.post.content
+        )}
+      </div>
       <p id="author">{props.post.author}</p>
-      <p>
-        {comments.length} comments &nbsp;&nbsp;
-        <Link to={`post/${props.post.id}`}>Go to comments</Link>
-      </p>
-      <Button onClick={() => access.removePost(props.post.id)}>Remove</Button>
     </div>
   );
 }

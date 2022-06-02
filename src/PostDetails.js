@@ -1,14 +1,12 @@
 import "./PostDetails.css";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 import Access from "./AccessScript";
-import Comment from "./Comment";
 import { useEffect, useState } from "react";
 
 function PostDetails() {
   const { id } = useParams();
   const access = new Access();
   const [post, setPost] = useState([]);
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     async function get() {
@@ -27,9 +25,6 @@ function PostDetails() {
       </div>
       <p id="content">{post.content}</p>
       <p id="author">{post.author}</p>
-      {comments.map((comment) => {
-        return <Comment comment={comment} />;
-      })}
     </div>
   );
 }

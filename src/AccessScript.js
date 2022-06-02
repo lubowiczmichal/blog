@@ -11,7 +11,30 @@ class Access {
       requestOptions
     );
     const posts = await response.json();
+    const offset = new Date().getTimezoneOffset();
+
+    posts.forEach((post) => {
+      const utf = this.convertFromStringToDate(post.dateTime);
+      post.dateTime = this.utfToTimeZonedTime(utf, offset);
+    });
     return posts;
+  }
+
+  utfToTimeZonedTime(date, offset) {
+    return new Date(date.getTime() - offset * 60000);
+  }
+  convertFromStringToDate(date) {
+    let dateComponents = date.split("T");
+    let datePieces = dateComponents[0].split("-");
+    let timePieces = dateComponents[1].split(":");
+    return new Date(
+      datePieces[0],
+      datePieces[1] - 1,
+      datePieces[2],
+      timePieces[0],
+      timePieces[1],
+      timePieces[2].split(".")[0]
+    );
   }
 
   async getPostById(id) {
@@ -28,9 +51,6 @@ class Access {
     return post;
   }
 
-  getCommentsByPostId(id) {
-    return null;
-  }
   addNewPost(post) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -43,6 +63,8 @@ class Access {
       body: raw,
       redirect: "follow",
     };
+
+    console.log(requestOptions);
 
     fetch("https://pw-posts.herokuapp.com/post", requestOptions)
       .then((response) => response.text())

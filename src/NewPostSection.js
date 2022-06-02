@@ -4,11 +4,11 @@ import { Button } from "@mui/material";
 import { useState, useRef } from "react";
 
 function NewPostSection() {
-  const [showNewPost, setShowNewPost] = useState(false);
   const newPost = useRef(null);
   const NEWPOST = "NEW POST";
   const CANCEL = "CANCEL";
   const [buttonText, setButtonText] = useState(NEWPOST);
+
   let content;
 
   content = (
@@ -18,6 +18,9 @@ function NewPostSection() {
       </div>
       <Button
         className="Button"
+        style={{
+          color: "#2F5061",
+        }}
         onClick={() => {
           if (buttonText == NEWPOST) {
             newPost.current.classList.add("show");
