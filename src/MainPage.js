@@ -10,7 +10,6 @@ function MainPage() {
   useEffect(() => {
     async function get() {
       const posts = await access.getAllPosts();
-      console.log(posts);
       setPosts(posts);
     }
     const interval = setInterval(() => {
@@ -31,7 +30,7 @@ function MainPage() {
             ? posts.map((post) => {
                 return <Post post={post} key={post.id} />;
               })
-            : " "}
+            : "Please wait"}
         </div>
       </div>
     </div>

@@ -1,4 +1,17 @@
 .NewPost {
   padding: 0.5em;
   border-style: line;
+  min-height: max-content;
+}
+
+.Edita {
+  padding: 0.5em;
+  background-color: red;
+}
+
+.Edit {
+  padding: 0.5em;
+  background-color: #f4eae6;
+  border-radius: 0.75em;
+  padding-bottom: 0.5em;
 }

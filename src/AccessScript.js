@@ -4,7 +4,6 @@ class Access {
       method: "GET",
       redirect: "follow",
     };
-    console.log("START");
 
     const response = await fetch(
       "https://pw-posts.herokuapp.com/posts",
@@ -47,7 +46,10 @@ class Access {
       `https://pw-posts.herokuapp.com/post/${id}`,
       requestOptions
     );
+    const offset = new Date().getTimezoneOffset();
     const post = await response.json();
+    const utf = this.convertFromStringToDate(post.dateTime);
+    post.dateTime = this.utfToTimeZonedTime(utf, offset);
     return post;
   }
 
@@ -64,26 +66,40 @@ class Access {
       redirect: "follow",
     };
 
-    console.log(requestOptions);
-
     fetch("https://pw-posts.herokuapp.com/post", requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   }
 
-  removePost(id) {
-    var formdata = new FormData();
+  update(id, post) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify(post);
 
     var requestOptions = {
-      method: "DELETE",
-      body: formdata,
+      method: "PUT",
+      headers: myHeaders,
+      body: raw,
       redirect: "follow",
     };
 
     fetch(`https://pw-posts.herokuapp.com/post/${id}`, requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  }
+
+  removePost(id) {
+    var formData = new FormData();
+
+    var requestOptions = {
+      method: "DELETE",
+      body: formData,
+      redirect: "follow",
+    };
+
+    fetch(`https://pw-posts.herokuapp.com/post/${id}`, requestOptions)
+      .then((response) => response.text())
       .catch((error) => console.log("error", error));
   }
 }
