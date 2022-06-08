@@ -14,3 +14,9 @@
   margin: auto;
   width: 800px;
 }
+
+#loader {
+  margin: 4em auto auto auto;
+  display: flex;
+  flex-direction: column;
+}

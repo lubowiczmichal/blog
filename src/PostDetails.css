@@ -18,6 +18,10 @@
   border-radius: 2em;
 }
 
+.PostDetails .Header {
+  width: 100%;
+}
+
 .PostDetails #title {
   white-space: pre-wrap;
   background-color: #e7d2cc;
@@ -28,14 +32,28 @@
 .PostDetails #content {
   white-space: pre-wrap;
   background-color: #eeede7;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  width: 80%;
 }
 
 .PostDetails #author {
   white-space: pre-wrap;
   background-color: #e2ded0;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  margin: auto calc(10% - 0.5em) auto auto;
 }
 
 .PostDetails #date {
   white-space: pre-wrap;
   background-color: #eeede7;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  width: fit-content;
+  margin: auto 0 auto auto;
+}
+
+#loader {
+  margin: 10em auto auto auto;
 }

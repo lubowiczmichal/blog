@@ -2,6 +2,7 @@ import "./PostDetails.css";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 import Access from "./AccessScript";
 import { useEffect, useState } from "react";
+import { SpinnerDotted } from "spinners-react";
 
 function PostDetails() {
   const { id } = useParams();
@@ -28,7 +29,15 @@ function PostDetails() {
       </div>
     );
   } else {
-    return <p>Please wait</p>;
+    return (
+      <SpinnerDotted
+        id="loader"
+        speed={75}
+        color={"#868b8e"}
+        thickness={75}
+        size={250}
+      />
+    );
   }
 }
 

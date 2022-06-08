@@ -3,6 +3,7 @@ import Post from "./Post";
 import NewPostSection from "./NewPostSection";
 import Access from "./AccessScript";
 import { useState, useEffect } from "react";
+import { SpinnerDotted } from "spinners-react";
 
 function MainPage() {
   const [posts, setPosts] = useState([]);
@@ -26,11 +27,19 @@ function MainPage() {
       <div className="MainPage-content">
         <NewPostSection />
         <div className="Posts">
-          {posts && posts.length > 0
-            ? posts.map((post) => {
-                return <Post post={post} key={post.id} />;
-              })
-            : "Please wait"}
+          {posts && posts.length > 0 ? (
+            posts.map((post) => {
+              return <Post post={post} key={post.id} />;
+            })
+          ) : (
+            <SpinnerDotted
+              id="loader"
+              speed={75}
+              color={"#868b8e"}
+              thickness={75}
+              size={250}
+            />
+          )}
         </div>
       </div>
     </div>
