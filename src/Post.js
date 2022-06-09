@@ -15,7 +15,7 @@ function Post(props) {
       <div className="Post">
         <div className="Post-Header">
           <div className="Header-Left">
-            <Link to={`post/${props.post.id}`}>
+            <Link class="link" to={`post/${props.post.id}`}>
               <p id="title">{props.post.title}</p>
             </Link>
           </div>
@@ -37,7 +37,9 @@ function Post(props) {
           {props.post.content.length > 303 ? (
             <p>
               {props.post.content.slice(0, 300) + "... "}
-              <Link to={`post/${props.post.id}`}>see whole</Link>
+              <Link className="link" to={`post/${props.post.id}`}>
+                see whole
+              </Link>
             </p>
           ) : (
             props.post.content

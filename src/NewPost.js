@@ -106,6 +106,9 @@ function NewPost(props) {
         access.update(id, post);
         props.isEditActive(false);
       }
+      setTitle("");
+      setContent("");
+      setAuthor("");
     }
   }
 }
